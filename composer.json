@@ -1,0 +1,10 @@
+{
+    "name": "admin/telainit",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Admin\\Telainit\\": "src/"
+        }
+    },
+    "require": {}
+}
