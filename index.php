@@ -9,6 +9,8 @@
 <body>
     <h1>Todo List deu certo! </h1>
     <?php 
-        echo "Hello Word"; ?> 
+        include_once 'src/main.php'
+        ?> 
+
 </body>
 </html>
