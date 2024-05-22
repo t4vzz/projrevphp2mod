@@ -9,12 +9,8 @@
     <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-  import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-analytics.js";
-  // TODO: Add SDKs for Firebase products that you want to use
-  // https://firebase.google.com/docs/web/setup#available-libraries
+  import {createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
 
-  // Your web app's Firebase configuration
-  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
   const firebaseConfig = {
     apiKey: "AIzaSyDyHi23Jpt-zkHY7POZTR2-1EGvTIAzHWw",
     authDomain: "tiquatiraec.firebaseapp.com",
@@ -26,17 +22,31 @@
   };
 
   // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
 
-  console.log(app);
+  window.fbApp = initializeApp(firebaseConfig);
+  
+  const btnRegister = document.getElementById('btnRegister');
+  btnRegister.addEventListener('click', ()=> {
+    const email = document.getElementById('email').value; 
+    const password = document.getElementById('password').value;
+    
+    try{
+      const userCredential = await createUserWithEmailAndPassword;
+      console.log(userCredential);
+    }
+    catch (error){
+      console.error(error);
+    }
+
+  })
+  
 </script>
 
 </head>
 <body>
     <h1>Todo List deu certo! </h1>
     <?php 
-        include_once 'src/main.php'
+    //     include_once 'src/main.php'
         ?> 
 
 <label for="email">Email</label><br>
@@ -44,7 +54,7 @@
     <label for="password">Password</label><br>
     <input type="password" id="password" name="password"><br>
     <button id="btnLogin">Login</button>
-    <button id="btnRegUser" onclick="registro" RegistrarUsuario(); >Registrar Usuário</button>
+    <button id="btnRegUser" onclick="registro"> Registrar Usuário</button>
  
 
 </body>
