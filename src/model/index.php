@@ -13,7 +13,7 @@
     <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.1/firebase-app.js";
-  import {createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
+  import {getAuth, createUserWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/10.12.1/firebase-auth.js";
 
   const firebaseConfig = {
     apiKey: "AIzaSyDyHi23Jpt-zkHY7POZTR2-1EGvTIAzHWw",
@@ -32,13 +32,15 @@
   console.log(window.fbApp);
   
   const btnRegister = document.getElementById('btnRegister');
+
   btnRegister.addEventListener('click', async ()=> {
     const email = document.getElementById('email').value; 
     const password = document.getElementById('password').value;
     console.log(email);
     console.log(password);
+  
     try{
-      const userCredential = await createUserWithEmailAndPassword;
+      const userCredential = await createUserWithEmailAndPassword(fbAuth, email, password);
       console.log(userCredential);
     }
     catch (error){
@@ -51,7 +53,6 @@
 
 </head>
 <body>
-
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Guaianases E.C. - Otavio </a>
@@ -96,10 +97,12 @@
 
 <label for="email">Email</label><br>
     <input type="email" id="email" name="email"><br>
+    
     <label for="password">Password</label><br>
     <input type="password" id="password" name="password"><br>
+    
     <button id="btnLogin">Login</button>
-    <button id="btnRegUser" onclick="registro"> Registrar Usuário</button>
+    <button id="btnRegister"> Registrar Usuário</button>
 
     
  
